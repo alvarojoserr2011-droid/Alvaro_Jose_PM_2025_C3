@@ -3,7 +3,7 @@
 #include <string.h>
 
 typedef struct Libro {
-    int ano;
+    int año;
     char autor[100];
     char titulo[100];
     char descripcion[200];
@@ -66,7 +66,7 @@ void mostrarLibro(Libro *l);
     Libro *nuevo = (Libro*)malloc(sizeof(Libro));
 
     printf("Ano: ");
-    scanf("%d", &nuevo->ano); getchar();
+    scanf("%d", &nuevo->año); getchar();
 
     printf("Autor: ");
     fgets(nuevo->autor, 100, stdin);
@@ -104,7 +104,7 @@ void mostrarLibro(Libro *l);
     Libro *aux = lista;
     while(aux != NULL) {
         fprintf(f, "%d|%s|%s|%s|%.2f|%d\n",
-                aux->ano, aux->autor, aux->titulo, aux->descripcion,
+                aux->año, aux->autor, aux->titulo, aux->descripcion,
                 aux->precio, aux->codigo);
         aux = aux->sig;
     }
@@ -127,7 +127,7 @@ void mostrarLibro(Libro *l);
 
     while(fgets(linea, sizeof(linea), f)) {
         sscanf(linea, "%d|%[^|]|%[^|]|%[^|]|%f|%d",
-               &temp.ano, temp.autor, temp.titulo,
+               &temp.año, temp.autor, temp.titulo,
                temp.descripcion, &temp.precio, &temp.codigo);
 
         Libro *nuevo = (Libro*)malloc(sizeof(Libro));
@@ -146,7 +146,7 @@ void mostrarLibro(Libro *l);
  void mostrarLibro(Libro *l) {
     if(!l) return;
     printf("\n---- LIBRO ----\n");
-    printf("Ano: %d\n", l->ano);
+    printf("Año: %d\n", l->ano);
     printf("Autor: %s\n", l->autor);
     printf("Titulo: %s\n", l->titulo);
     printf("Descripcion: %s\n", l->descripcion);
